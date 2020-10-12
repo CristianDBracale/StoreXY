@@ -15,3 +15,16 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.fRigth {
+    float: right;
+}
+
+.fLeft {
+    float: left;
+}
+
+#lblSelectedUser {
+    color: white;
+    margin-top: 14px;
+}

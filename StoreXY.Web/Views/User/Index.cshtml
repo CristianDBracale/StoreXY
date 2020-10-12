@@ -1,0 +1,64 @@
+﻿@model List<StoreXY.DTOs.SelectUserDTO>
+@using StoreXY.Web.Controllers
+@using StoreXY.Web.Helpers
+@using StoreXY.DTOs
+@using StoreXY.ResourcesManager
+
+@{
+    ViewBag.Title = "Select User";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Select Client</h2>
+
+@using (Html.BeginForm(UserController.ActionsUser.ChangeUser.ToString(),
+    ControllerHelpers.UserController.ToString(),
+    FormMethod.Post,
+    new { Id = "frmSelectClient" }))
+{
+    foreach (SelectUserDTO client in Model)
+    {
+        if ((Session["IdClientSelected"] != null && long.Parse(Session["IdClientSelected"].ToString()) == client.Id))
+        {
+            <label>@Html.RadioButtonFor(g => g.FirstOrDefault().SelectedClient, client.Id, new { @Id = "rdb_" + client.Id, @checked = "checked" })@client.Name</label>
+        }
+        else
+        {
+            <label>@Html.RadioButtonFor(g => g.FirstOrDefault().SelectedClient, client.Id, new { @Id = "rdb_" + client.Id })@client.Name</label>
+        }
+    }
+    <div class="container">
+        <button class="btn btn-primary" name="btnChangeClient" id="btnChangeClient">@Resources.GetMensage("btnChangeClient")</button>
+    </div>
+
+}
+
+@if (!string.IsNullOrWhiteSpace(ViewBag.Msg))
+{
+    <div id="myModal" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">@Resources.GetMensage("ClientSelected")</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>@ViewBag.Msg</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#myModal").modal();
+        });
+    </script>
+}
+

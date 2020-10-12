@@ -6,6 +6,10 @@ namespace StoreXY.Managers
 {
     public class OrdersManager
     {
+        /// <summary>
+        /// Method that returns all orders
+        /// </summary>
+        /// <returns>List<ListOrderDTO></returns>
         public static List<ListOrderDTO> GetAllOrders()
         {
             List<ListOrderDTO> listOrderDTOs = new List<ListOrderDTO>();
