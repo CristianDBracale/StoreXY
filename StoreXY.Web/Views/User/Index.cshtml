@@ -5,11 +5,11 @@
 @using StoreXY.ResourcesManager
 
 @{
-    ViewBag.Title = "Select User";
+    ViewBag.Title = Resources.GetMessage("SelectClient");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Select Client</h2>
+<h2>@Resources.GetMessage("SelectClient")</h2>
 
 @using (Html.BeginForm(UserController.ActionsUser.ChangeUser.ToString(),
     ControllerHelpers.UserController.ToString(),
@@ -28,9 +28,8 @@
         }
     }
     <div class="container">
-        <button class="btn btn-primary" name="btnChangeClient" id="btnChangeClient">@Resources.GetMensage("btnChangeClient")</button>
+        <button class="btn btn-primary" name="btnChangeClient" id="btnChangeClient">@Resources.GetMessage("btnChangeClient")</button>
     </div>
-
 }
 
 @if (!string.IsNullOrWhiteSpace(ViewBag.Msg))
@@ -39,7 +38,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">@Resources.GetMensage("ClientSelected")</h5>
+                    <h5 class="modal-title">@Resources.GetMessage("ClientSelected")</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -48,7 +47,7 @@
                     <p>@ViewBag.Msg</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">@Resources.GetMessage("Close")</button>
                 </div>
             </div>
         </div>

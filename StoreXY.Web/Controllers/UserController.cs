@@ -26,12 +26,12 @@ namespace StoreXY.Web.Controllers
             {
                 if (string.IsNullOrWhiteSpace(selectUserDTO.SelectedClient))
                 {
-                    return RedirectToAction(ActionsUser.Index.ToString(), new { type = TypeOfMessageEnum.Error.ToString(), msg = Resources.GetMensage("ErrorMustSelectAClient") });
+                    return RedirectToAction(ActionsUser.Index.ToString(), new { type = TypeOfMessageEnum.Error.ToString(), msg = Resources.GetMessage("ErrorMustSelectAClient") });
                 }
 
                 Session["IdClientSelected"] = long.Parse(selectUserDTO.SelectedClient);
 
-                return RedirectToAction(ActionsUser.Index.ToString(), new { type = TypeOfMessageEnum.Success.ToString(), msg = Resources.GetMensage("SuccessfullyChangedClient") });
+                return RedirectToAction(ActionsUser.Index.ToString(), new { type = TypeOfMessageEnum.Success.ToString(), msg = Resources.GetMessage("SuccessfullyChangedClient") });
             }
             catch (Exception ex)
             {

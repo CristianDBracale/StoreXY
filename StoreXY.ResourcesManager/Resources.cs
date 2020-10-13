@@ -4,7 +4,7 @@ namespace StoreXY.ResourcesManager
 {
     public class Resources
     {
-        public static string GetMensage(string resource)
+        public static string GetMessage(string resource)
         {
             ResourceManager res_msg = new ResourceManager(typeof(Properties.Resources));
 

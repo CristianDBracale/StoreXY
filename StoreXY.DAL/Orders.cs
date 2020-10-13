@@ -22,7 +22,10 @@ namespace StoreXY.DAL
         public System.DateTime created_at { get; set; }
         public Nullable<System.DateTime> updated_at { get; set; }
         public long idClient { get; set; }
+        public long idProduct { get; set; }
     
         public virtual Clients Clients { get; set; }
+        public virtual Products Products { get; set; }
+        public virtual Products Products1 { get; set; }
     }
 }

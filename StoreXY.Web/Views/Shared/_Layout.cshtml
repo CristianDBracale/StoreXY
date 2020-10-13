@@ -33,7 +33,11 @@
                     <li>@Html.ActionLink("All Orders", OrderController.ActionsOrder.Index.ToString(), ControllerHelpers.OrderController.ToString(), new { area = "" }, null)</li>
                     <li>@Html.ActionLink("Create Order", OrderController.ActionsOrder.CreateOrder.ToString(), ControllerHelpers.OrderController.ToString(), new { area = "" }, null)</li>
                 </ul>
-                <span id="lblSelectedUser" class="fRigth">@(Session["IdClientSelected"] == null ? "" : Resources.GetMensage("ClientSelected") + ": " + Gateway.GetUserById(long.Parse(Session["IdClientSelected"].ToString())).Name)</span>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <label id="lblSelectedUser" class="">@(Session["IdClientSelected"] == null ? "" : Resources.GetMessage("ClientSelected") + ": " + Gateway.GetUserById(long.Parse(Session["IdClientSelected"].ToString())).Name)</label>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>

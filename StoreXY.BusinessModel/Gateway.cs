@@ -1,5 +1,6 @@
 ﻿using StoreXY.DTOs;
 using StoreXY.Managers;
+using System;
 using System.Collections.Generic;
 
 namespace StoreXY.BusinessModel
@@ -12,6 +13,10 @@ namespace StoreXY.BusinessModel
             return OrdersManager.GetAllOrders();
         }
 
+        public static void SaveNewOrder(CreateOrderDTO createOrderDTO, long idClientSelected)
+        {
+            OrdersManager.SaveNewOrder(createOrderDTO, idClientSelected);
+        }
         #endregion
 
         #region Clients
@@ -24,6 +29,14 @@ namespace StoreXY.BusinessModel
         {
             return UsersManager.GetUserById(id);
         }
+        #endregion
+
+        #region Products
+        public static List<ListProductDTO> GetAllProducts()
+        {
+            return ProductManager.GetAllProducts();
+        }
+
         #endregion
     }
 }

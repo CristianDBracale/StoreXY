@@ -1,9 +1,56 @@
-﻿
+﻿@model StoreXY.DTOs.CreateOrderDTO
+@using StoreXY.ResourcesManager;
+@using StoreXY.Web.Controllers;
+@using StoreXY.Web.Helpers;
+
 @{
-    ViewBag.Title = "Create Order";
+    ViewBag.Title = Resources.GetMessage("CreateOrder");
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>CreateOrder</h2>
+<h2>@Resources.GetMessage("CreateOrder")</h2>
 
-@using (Html.BeginForm(){ })
+@if (Model.Products.Count > 0)
+{
+        using (Html.BeginForm(OrderController.ActionsOrder.SaveNewOrder.ToString(),
+        ControllerHelpers.OrderController.ToString(),
+        FormMethod.Post,
+        new { Id = "frmSaveNewOrder" }))
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-group">
+            <label for="@Model.Products">@Resources.GetMessage("Product")</label>
+            @Html.DropDownListFor(model => Model.IdProductSelected, Model.Products, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.IdProductSelected, "", new { @class = "text-danger", @required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="@Model.ClientName">@Resources.GetMessage("Name")</label>
+            @Html.TextBoxFor(model => Model.ClientName, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.ClientName, "", new { @class = "text-danger", @required = "required" })
+        </div>
+        <div class="form-group">
+            <label for="@Model.ClientEmail">@Resources.GetMessage("Email")</label>
+            @Html.TextBoxFor(model => Model.ClientEmail, new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => Model.ClientEmail, "", new { @class = "text-danger" })
+        </div>
+        <div class="form-group">
+            <label for="@Model.ClientMobile">@Resources.GetMessage("MobilePhoneNumber")</label>
+            @Html.TextBoxFor(model => Model.ClientMobile, new { @class = "form-control", @type = "number" })
+            @Html.ValidationMessageFor(model => Model.ClientMobile, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="container">
+            <button class="btn btn-primary" name="btnSaveNewOrder" id="btnSaveNewOrder">@Resources.GetMessage("SaveOrder")</button>
+        </div>
+    }
+}
+else
+{
+    <div class="container">
+        <div class="form-group">
+            <label>@Resources.GetMessage("ThereAreNoProducts")</label>
+        </div>
+    </div>
+}

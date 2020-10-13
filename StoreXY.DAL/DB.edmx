@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="StoreXYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="StoreXYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Clients">
           <Key>
             <PropertyRef Name="id" />
@@ -24,29 +24,22 @@
           <Property Name="created_at" Type="datetime2" Precision="7" Nullable="false" />
           <Property Name="updated_at" Type="datetime2" Precision="7" />
           <Property Name="idClient" Type="bigint" Nullable="false" />
+          <Property Name="idProduct" Type="bigint" Nullable="false" />
         </EntityType>
-        <Association Name="FK_Orders_Clients">
-          <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
-          <End Role="Orders" Type="Self.Orders" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Clients">
-              <PropertyRef Name="id" />
-            </Principal>
-            <Dependent Role="Orders">
-              <PropertyRef Name="idClient" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="price" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
         <EntityContainer Name="StoreXYModelStoreContainer">
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_Orders_Clients" Association="Self.FK_Orders_Clients">
-            <End Role="Clients" EntitySet="Clients" />
-            <End Role="Orders" EntitySet="Orders" />
-          </AssociationSet>
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="StoreXYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -71,6 +64,9 @@
           <Property Name="updated_at" Type="DateTime" Precision="7" />
           <Property Name="idClient" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Orders_Clients" FromRole="Orders" ToRole="Clients" />
+          <Property Name="idProduct" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="Products" Relationship="StoreXYModel.FK_Orders_Clients1" FromRole="Orders" ToRole="Products" />
+          <NavigationProperty Name="Products1" Relationship="StoreXYModel.FK_Orders_Clients2" FromRole="Orders" ToRole="Products" />
         </EntityType>
         <Association Name="FK_Orders_Clients">
           <End Role="Clients" Type="Self.Clients" Multiplicity="1" />
@@ -91,7 +87,50 @@
             <End Role="Clients" EntitySet="Clients" />
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
+          <EntitySet Name="Products" EntityType="StoreXYModel.Products" />
+          <AssociationSet Name="FK_Orders_Clients1" Association="StoreXYModel.FK_Orders_Clients1">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Orders_Clients2" Association="StoreXYModel.FK_Orders_Clients2">
+            <End Role="Products" EntitySet="Products" />
+            <End Role="Orders" EntitySet="Orders" />
+          </AssociationSet>
         </EntityContainer>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="price" Type="Decimal" Nullable="false" Precision="18" Scale="2" />
+          <NavigationProperty Name="Orders" Relationship="StoreXYModel.FK_Orders_Clients1" FromRole="Products" ToRole="Orders" />
+          <NavigationProperty Name="Orders1" Relationship="StoreXYModel.FK_Orders_Clients2" FromRole="Products" ToRole="Orders" />
+        </EntityType>
+        <Association Name="FK_Orders_Clients1">
+          <End Type="StoreXYModel.Products" Role="Products" Multiplicity="1" />
+          <End Type="StoreXYModel.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="idClient" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Orders_Clients2">
+          <End Type="StoreXYModel.Products" Role="Products" Multiplicity="1" />
+          <End Type="StoreXYModel.Orders" Role="Orders" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Products">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="Orders">
+              <PropertyRef Name="idProduct" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -109,6 +148,7 @@
           <EntitySetMapping Name="Orders">
             <EntityTypeMapping TypeName="StoreXYModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="idProduct" ColumnName="idProduct" />
                 <ScalarProperty Name="id" ColumnName="id" />
                 <ScalarProperty Name="customer_name" ColumnName="customer_name" />
                 <ScalarProperty Name="customer_email" ColumnName="customer_email" />
@@ -117,6 +157,15 @@
                 <ScalarProperty Name="created_at" ColumnName="created_at" />
                 <ScalarProperty Name="updated_at" ColumnName="updated_at" />
                 <ScalarProperty Name="idClient" ColumnName="idClient" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="StoreXYModel.Products">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="price" ColumnName="price" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="id" ColumnName="id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

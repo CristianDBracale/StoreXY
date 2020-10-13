@@ -1,18 +1,19 @@
 ﻿@model List<StoreXY.DTOs.ListOrderDTO>
 @using StoreXY.DTOs;
+@using StoreXY.ResourcesManager;
 
 <div class="row">
     @if (Model.Count > 0)
     {
         <table class="table table-responsive">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Mobile</th>
-                <th>Status</th>
-                <th>Client</th>
-                <th>Actions</th>
+                <th>@Resources.GetMessage("Id")</th>
+                <th>@Resources.GetMessage("Name")</th>
+                <th>@Resources.GetMessage("Email")</th>
+                <th>@Resources.GetMessage("Mobile")</th>
+                <th>@Resources.GetMessage("Status")</th>
+                <th>@Resources.GetMessage("Client")</th>
+                <th>@Resources.GetMessage("Actions")</th>
             </tr>
             @foreach (ListOrderDTO order in Model)
             {
@@ -23,13 +24,13 @@
                     <td>@order.customer_mobile</td>
                     <td>@order.status</td>
                     <td>@order.nameClient</td>
-                    <td>Agregar botones</td>
+                    <td>AgReGaR BoToNeS</td>
                 </tr>
             }
         </table>
     }
     else
     {
-        <h3>No se encontraron Ordenes</h3>
+        <h3>@Resources.GetMessage("NoOrdersFound")</h3>
     }
 </div>

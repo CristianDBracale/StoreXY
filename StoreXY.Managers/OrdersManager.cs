@@ -1,5 +1,6 @@
 ﻿using StoreXY.DAL;
 using StoreXY.DTOs;
+using System;
 using System.Collections.Generic;
 
 namespace StoreXY.Managers
@@ -21,6 +22,26 @@ namespace StoreXY.Managers
                 }
             }
             return listOrderDTOs;
+        }
+
+        public static void SaveNewOrder(CreateOrderDTO createOrderDTO, long idClientSelected)
+        {
+            Orders order = new Orders
+            {
+                customer_name = createOrderDTO.ClientName,
+                customer_email = createOrderDTO.ClientEmail,
+                customer_mobile = createOrderDTO.ClientMobile,
+                status = "CREATED",
+                created_at = DateTime.Now,
+                idClient = idClientSelected,
+                idProduct = createOrderDTO.IdProductSelected
+            };
+
+            using (StoreXYEntities db = new StoreXYEntities())
+            {
+                db.Orders.Add(order);
+                db.SaveChanges();
+            }
         }
     }
 }

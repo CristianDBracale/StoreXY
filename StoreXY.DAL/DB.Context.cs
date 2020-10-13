@@ -27,5 +27,6 @@ namespace StoreXY.DAL
     
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<Orders> Orders { get; set; }
+        public virtual DbSet<Products> Products { get; set; }
     }
 }
