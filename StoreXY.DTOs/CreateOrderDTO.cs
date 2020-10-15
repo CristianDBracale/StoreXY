@@ -23,6 +23,14 @@ namespace StoreXY.DTOs
         {
             Products = listProducts;
         }
+
+        public CreateOrderDTO(List<SelectListItem> products, long idProductSelected, string clientName, string clientEmail, string clientMobile) : this(products)
+        {
+            IdProductSelected = idProductSelected;
+            ClientName = clientName;
+            ClientEmail = clientEmail;
+            ClientMobile = clientMobile;
+        }
         #endregion
     }
 }

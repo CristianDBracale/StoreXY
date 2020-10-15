@@ -89,8 +89,7 @@ namespace StoreXY.Web.Controllers
         public ActionResult OrderDetail(long idOrder)
         {
             OrderDetailDTO orderDetail = Gateway.GetOrderById(idOrder);
-            orderDetail.NameOfProduct = "aaaaa";
-            orderDetail.ProductPrice = (decimal)7788.34;
+
             return View(orderDetail);
         }
 
