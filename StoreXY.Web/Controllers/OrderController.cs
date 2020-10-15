@@ -1,4 +1,5 @@
-﻿using StoreXY.BusinessModel;
+﻿using StoreXY.APIPlaceToPay;
+using StoreXY.BusinessModel;
 using StoreXY.DTOs;
 using StoreXY.ResourcesManager;
 using StoreXY.Web.Enums;
@@ -95,8 +96,13 @@ namespace StoreXY.Web.Controllers
 
         public ActionResult PayOrder(long idOrder)
         {
-            //TODO
-            return View("Index");
+            OrderToPayDTO orderToPayDTO = Gateway.GetOrderToPayById(idOrder);
+
+            PlaceToPay APIPlaceToPay = new PlaceToPay();
+
+            APIPlaceToPay.Pay(orderToPayDTO);
+
+            return RedirectToAction(ActionsOrder.Index.ToString());
         }
 
         #region Enums

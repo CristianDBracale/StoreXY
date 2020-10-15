@@ -45,6 +45,25 @@ namespace StoreXY.Managers
             }
         }
 
+        public static OrderToPayDTO GetOrderToPayById(long idOrder)
+        {
+            try
+            {
+                Orders order;
+                OrderToPayDTO orderToPayDTO;
+                using (StoreXYEntities db = new StoreXYEntities())
+                {
+                    order = db.Orders.FirstOrDefault(x => x.id == idOrder);
+                    orderToPayDTO = new OrderToPayDTO(order);
+                }
+
+                return orderToPayDTO;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
 
         public static OrderDetailDTO GetOrderById(long idOrder)
         {
@@ -59,6 +78,24 @@ namespace StoreXY.Managers
                 }
 
                 return orderDetailDTO;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+        }
+
+
+        public static void UpdateOrder(long id, string newState)
+        {
+            try
+            {
+                using (StoreXYEntities db = new StoreXYEntities())
+                {
+                    Orders order = db.Orders.FirstOrDefault(x => x.id == id);
+                    order.status = newState;
+                    db.SaveChanges();
+                }
             }
             catch (Exception ex)
             {

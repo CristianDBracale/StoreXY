@@ -210,6 +210,10 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StoreXY.APIPlaceToPay\StoreXY.APIPlaceToPay.csproj">
+      <Project>{CC1DAC89-3E46-4B24-AC13-46C1CCF86947}</Project>
+      <Name>StoreXY.APIPlaceToPay</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StoreXY.BusinessModel\StoreXY.BusinessModel.csproj">
       <Project>{EB34BB42-F91E-42E6-AB74-36E984ACEE87}</Project>
       <Name>StoreXY.BusinessModel</Name>

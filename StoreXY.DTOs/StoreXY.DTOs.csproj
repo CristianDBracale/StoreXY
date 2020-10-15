@@ -67,6 +67,7 @@
     <Compile Include="ListOrderDTO.cs" />
     <Compile Include="ListProductDTO.cs" />
     <Compile Include="OrderDetailDTO.cs" />
+    <Compile Include="OrderToPayDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectUserDTO.cs" />
   </ItemGroup>

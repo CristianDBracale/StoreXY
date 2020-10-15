@@ -23,6 +23,11 @@ namespace StoreXY.BusinessModel
             return OrdersManager.GetOrderById(idOrder);
         }
 
+        public static OrderToPayDTO GetOrderToPayById(long idOrder)
+        {
+            return OrdersManager.GetOrderToPayById(idOrder);
+        }
+
         #endregion
 
         #region Clients
@@ -41,6 +46,13 @@ namespace StoreXY.BusinessModel
         public static List<ListProductDTO> GetAllProducts()
         {
             return ProductManager.GetAllProducts();
+        }
+        #endregion
+
+        #region API orders
+        public static void UpdateOrder(long id, string newState)
+        {
+            OrdersManager.UpdateOrder(id, newState);
         }
         #endregion
     }
