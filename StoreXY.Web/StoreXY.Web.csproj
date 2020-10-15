@@ -175,6 +175,7 @@
     <Content Include="Views\User\Index.cshtml" />
     <Content Include="Views\Order\CreateOrder.cshtml" />
     <Content Include="Views\Order\CreateNewOrder.cshtml" />
+    <Content Include="Views\Order\OrderDetail.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -212,6 +213,10 @@
     <ProjectReference Include="..\StoreXY.BusinessModel\StoreXY.BusinessModel.csproj">
       <Project>{EB34BB42-F91E-42E6-AB74-36E984ACEE87}</Project>
       <Name>StoreXY.BusinessModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreXY.CrossLayer\StoreXY.CrossLayer.csproj">
+      <Project>{4dc9ba89-49ca-45f6-807b-91927ecace2d}</Project>
+      <Name>StoreXY.CrossLayer</Name>
     </ProjectReference>
     <ProjectReference Include="..\StoreXY.DTOs\StoreXY.DTOs.csproj">
       <Project>{f965d5cd-9886-4d69-96bc-206ce1ee99d8}</Project>

@@ -17,6 +17,12 @@ namespace StoreXY.BusinessModel
         {
             OrdersManager.SaveNewOrder(createOrderDTO, idClientSelected);
         }
+
+        public static OrderDetailDTO GetOrderById(long idOrder)
+        {
+            return OrdersManager.GetOrderById(idOrder);
+        }
+
         #endregion
 
         #region Clients
@@ -36,7 +42,6 @@ namespace StoreXY.BusinessModel
         {
             return ProductManager.GetAllProducts();
         }
-
         #endregion
     }
 }

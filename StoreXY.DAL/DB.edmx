@@ -65,7 +65,6 @@
           <Property Name="idClient" Type="Int64" Nullable="false" />
           <NavigationProperty Name="Clients" Relationship="Self.FK_Orders_Clients" FromRole="Orders" ToRole="Clients" />
           <Property Name="idProduct" Type="Int64" Nullable="false" />
-          <NavigationProperty Name="Products" Relationship="StoreXYModel.FK_Orders_Clients1" FromRole="Orders" ToRole="Products" />
           <NavigationProperty Name="Products1" Relationship="StoreXYModel.FK_Orders_Clients2" FromRole="Orders" ToRole="Products" />
         </EntityType>
         <Association Name="FK_Orders_Clients">

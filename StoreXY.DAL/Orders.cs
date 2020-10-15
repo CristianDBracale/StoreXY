@@ -25,7 +25,6 @@ namespace StoreXY.DAL
         public long idProduct { get; set; }
     
         public virtual Clients Clients { get; set; }
-        public virtual Products Products { get; set; }
         public virtual Products Products1 { get; set; }
     }
 }

@@ -2,6 +2,7 @@
 using StoreXY.DTOs;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StoreXY.Managers
 {
@@ -41,6 +42,27 @@ namespace StoreXY.Managers
             {
                 db.Orders.Add(order);
                 db.SaveChanges();
+            }
+        }
+
+
+        public static OrderDetailDTO GetOrderById(long idOrder)
+        {
+            try
+            {
+                Orders order;
+                OrderDetailDTO orderDetailDTO;
+                using (StoreXYEntities db = new StoreXYEntities())
+                {
+                    order = db.Orders.FirstOrDefault(x => x.id == idOrder);
+                    orderDetailDTO = new OrderDetailDTO(order);
+                }
+
+                return orderDetailDTO;
+            }
+            catch (Exception ex)
+            {
+                throw;
             }
         }
     }

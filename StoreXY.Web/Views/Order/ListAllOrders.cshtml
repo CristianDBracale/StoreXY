@@ -1,6 +1,8 @@
 ﻿@model List<StoreXY.DTOs.ListOrderDTO>
 @using StoreXY.DTOs;
+@using StoreXY.Web.Controllers;
 @using StoreXY.ResourcesManager;
+@using StoreXY.CrossLayer.Enum;
 
 <div class="row">
     @if (Model.Count > 0)
@@ -24,7 +26,22 @@
                     <td>@order.customer_mobile</td>
                     <td>@order.status</td>
                     <td>@order.nameClient</td>
-                    <td>AgReGaR BoToNeS</td>
+                    <td>
+                        @{
+                            if (order.status == OrderStatusEnum.CREATED.ToString())
+                            {
+                                @Html.ActionLink(Resources.GetMessage("Pay"), OrderController.ActionsOrder.OrderDetail.ToString(), new { idOrder = order.id }, new { @class = "btn btn-success" });
+                            }
+                            if (order.status == OrderStatusEnum.PAYED.ToString())
+                            {
+                                @Html.Label(Resources.GetMessage("Paid").ToString())
+                            }
+                            if (order.status == OrderStatusEnum.REJECTED.ToString())
+                            {
+                                @Html.ActionLink(Resources.GetMessage("RetryPayment"), OrderController.ActionsOrder.OrderDetail.ToString(), new { idOrder = order.id }, new { @class = "btn btn-primary" });
+                            }
+                        }
+                    </td>
                 </tr>
             }
         </table>

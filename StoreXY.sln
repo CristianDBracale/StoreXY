@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreXY.DTOs", "StoreXY.DTO
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreXY.ResourcesManager", "StoreXY.ResourcesManager\StoreXY.ResourcesManager.csproj", "{C4BE7F48-AB22-4753-A7B3-A8412FA8FCDF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreXY.CrossLayer", "StoreXY.CrossLayer\StoreXY.CrossLayer.csproj", "{4DC9BA89-49CA-45F6-807B-91927ECACE2D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{C4BE7F48-AB22-4753-A7B3-A8412FA8FCDF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4BE7F48-AB22-4753-A7B3-A8412FA8FCDF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4BE7F48-AB22-4753-A7B3-A8412FA8FCDF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4DC9BA89-49CA-45F6-807B-91927ECACE2D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4DC9BA89-49CA-45F6-807B-91927ECACE2D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4DC9BA89-49CA-45F6-807B-91927ECACE2D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4DC9BA89-49CA-45F6-807B-91927ECACE2D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

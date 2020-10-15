@@ -1,0 +1,57 @@
+﻿@model StoreXY.DTOs.OrderDetailDTO
+@using StoreXY.ResourcesManager;
+@using StoreXY.Web.Controllers;
+
+@{
+    ViewBag.Title = "OrderDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>OrderDetail</h2>
+
+<div>
+    <h4>@Html.Display(Resources.GetMessage("NumberOfOrder") + Model.Id.ToString() + " - " + Resources.GetMessage("ClientTwoPoints"))</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NameOfProduct)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameOfProduct)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.ProductPrice)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.ProductPrice)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NameClient)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.NameClient)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MobileClient)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MobileClient)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailClient)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.EmailClient)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CreatedAt)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CreatedAt)
+        </dd>
+    </dl>
+</div>
+<p>
+    @Html.ActionLink(Resources.GetMessage("Pay"), OrderController.ActionsOrder.PayOrder.ToString(), new { idOrder = Model.Id }, new { @class = "btn btn-success" }) |
+    @Html.ActionLink(Resources.GetMessage("BackToList"), OrderController.ActionsOrder.Index.ToString(), new { }, new { @class = "btn btn-default" })
+</p>

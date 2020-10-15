@@ -86,6 +86,20 @@ namespace StoreXY.Web.Controllers
             }
         }
 
+        public ActionResult OrderDetail(long idOrder)
+        {
+            OrderDetailDTO orderDetail = Gateway.GetOrderById(idOrder);
+            orderDetail.NameOfProduct = "aaaaa";
+            orderDetail.ProductPrice = (decimal)7788.34;
+            return View(orderDetail);
+        }
+
+        public ActionResult PayOrder(long idOrder)
+        {
+            //TODO
+            return View("Index");
+        }
+
         #region Enums
 
         public enum ActionsOrder
@@ -93,7 +107,9 @@ namespace StoreXY.Web.Controllers
             Index,
             ListAllOrders,
             CreateOrder,
-            SaveNewOrder
+            SaveNewOrder,
+            OrderDetail,
+            PayOrder
         }
 
         #endregion

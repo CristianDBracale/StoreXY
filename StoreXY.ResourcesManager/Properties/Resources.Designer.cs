@@ -22,7 +22,7 @@ namespace StoreXY.ResourcesManager.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace StoreXY.ResourcesManager.Properties {
         ///   Devuelve la instancia de ResourceManager almacenada en caché utilizada por esta clase.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("StoreXY.ResourcesManager.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace StoreXY.ResourcesManager.Properties {
         ///   búsquedas de recursos mediante esta clase de recurso fuertemente tipado.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -63,16 +63,25 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Actions.
         /// </summary>
-        internal static string Actions {
+        public static string Actions {
             get {
                 return ResourceManager.GetString("Actions", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Back to List.
+        /// </summary>
+        public static string BackToList {
+            get {
+                return ResourceManager.GetString("BackToList", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Change client.
         /// </summary>
-        internal static string btnChangeClient {
+        public static string btnChangeClient {
             get {
                 return ResourceManager.GetString("btnChangeClient", resourceCulture);
             }
@@ -81,7 +90,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Client.
         /// </summary>
-        internal static string Client {
+        public static string Client {
             get {
                 return ResourceManager.GetString("Client", resourceCulture);
             }
@@ -90,16 +99,25 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Client selected.
         /// </summary>
-        internal static string ClientSelected {
+        public static string ClientSelected {
             get {
                 return ResourceManager.GetString("ClientSelected", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Client: .
+        /// </summary>
+        public static string ClientTwoPoints {
+            get {
+                return ResourceManager.GetString("ClientTwoPoints", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Close.
         /// </summary>
-        internal static string Close {
+        public static string Close {
             get {
                 return ResourceManager.GetString("Close", resourceCulture);
             }
@@ -108,7 +126,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Create order.
         /// </summary>
-        internal static string CreateOrder {
+        public static string CreateOrder {
             get {
                 return ResourceManager.GetString("CreateOrder", resourceCulture);
             }
@@ -117,7 +135,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Email.
         /// </summary>
-        internal static string Email {
+        public static string Email {
             get {
                 return ResourceManager.GetString("Email", resourceCulture);
             }
@@ -126,7 +144,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a You must select a Client.
         /// </summary>
-        internal static string ErrorMustSelectAClient {
+        public static string ErrorMustSelectAClient {
             get {
                 return ResourceManager.GetString("ErrorMustSelectAClient", resourceCulture);
             }
@@ -135,7 +153,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Id.
         /// </summary>
-        internal static string Id {
+        public static string Id {
             get {
                 return ResourceManager.GetString("Id", resourceCulture);
             }
@@ -144,7 +162,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a List all orders.
         /// </summary>
-        internal static string ListAllOrders {
+        public static string ListAllOrders {
             get {
                 return ResourceManager.GetString("ListAllOrders", resourceCulture);
             }
@@ -153,7 +171,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Mobile.
         /// </summary>
-        internal static string Mobile {
+        public static string Mobile {
             get {
                 return ResourceManager.GetString("Mobile", resourceCulture);
             }
@@ -162,7 +180,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Mobile phone number.
         /// </summary>
-        internal static string MobilePhoneNumber {
+        public static string MobilePhoneNumber {
             get {
                 return ResourceManager.GetString("MobilePhoneNumber", resourceCulture);
             }
@@ -171,34 +189,79 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Name.
         /// </summary>
-        internal static string Name {
+        public static string Name {
             get {
                 return ResourceManager.GetString("Name", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Name of product.
+        /// </summary>
+        public static string NameOfProduct {
+            get {
+                return ResourceManager.GetString("NameOfProduct", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a No orders found.
         /// </summary>
-        internal static string NoOrdersFound {
+        public static string NoOrdersFound {
             get {
                 return ResourceManager.GetString("NoOrdersFound", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Number of order: .
+        /// </summary>
+        public static string NumberOfOrder {
+            get {
+                return ResourceManager.GetString("NumberOfOrder", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Paid.
+        /// </summary>
+        public static string Paid {
+            get {
+                return ResourceManager.GetString("Paid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Pay.
+        /// </summary>
+        public static string Pay {
+            get {
+                return ResourceManager.GetString("Pay", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Product.
         /// </summary>
-        internal static string Product {
+        public static string Product {
             get {
                 return ResourceManager.GetString("Product", resourceCulture);
             }
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Retry payment.
+        /// </summary>
+        public static string RetryPayment {
+            get {
+                return ResourceManager.GetString("RetryPayment", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Save order.
         /// </summary>
-        internal static string SaveOrder {
+        public static string SaveOrder {
             get {
                 return ResourceManager.GetString("SaveOrder", resourceCulture);
             }
@@ -207,7 +270,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Select client.
         /// </summary>
-        internal static string SelectClient {
+        public static string SelectClient {
             get {
                 return ResourceManager.GetString("SelectClient", resourceCulture);
             }
@@ -216,7 +279,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Status.
         /// </summary>
-        internal static string Status {
+        public static string Status {
             get {
                 return ResourceManager.GetString("Status", resourceCulture);
             }
@@ -225,7 +288,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a Successfully changed customer.
         /// </summary>
-        internal static string SuccessfullyChangedClient {
+        public static string SuccessfullyChangedClient {
             get {
                 return ResourceManager.GetString("SuccessfullyChangedClient", resourceCulture);
             }
@@ -234,7 +297,7 @@ namespace StoreXY.ResourcesManager.Properties {
         /// <summary>
         ///   Busca una cadena traducida similar a There are no products.
         /// </summary>
-        internal static string ThereAreNoProducts {
+        public static string ThereAreNoProducts {
             get {
                 return ResourceManager.GetString("ThereAreNoProducts", resourceCulture);
             }

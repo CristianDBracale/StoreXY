@@ -66,6 +66,7 @@
     <Compile Include="CreateOrderDTO.cs" />
     <Compile Include="ListOrderDTO.cs" />
     <Compile Include="ListProductDTO.cs" />
+    <Compile Include="OrderDetailDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SelectUserDTO.cs" />
   </ItemGroup>
@@ -73,6 +74,10 @@
     <ProjectReference Include="..\StoreXY.DAL\StoreXY.DAL.csproj">
       <Project>{615DE532-47DF-403A-A158-7063288F406E}</Project>
       <Name>StoreXY.DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoreXY.ResourcesManager\StoreXY.ResourcesManager.csproj">
+      <Project>{C4BE7F48-AB22-4753-A7B3-A8412FA8FCDF}</Project>
+      <Name>StoreXY.ResourcesManager</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

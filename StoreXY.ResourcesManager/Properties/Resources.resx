@@ -177,4 +177,25 @@
   <data name="ThereAreNoProducts" xml:space="preserve">
     <value>There are no products</value>
   </data>
+  <data name="Pay" xml:space="preserve">
+    <value>Pay</value>
+  </data>
+  <data name="BackToList" xml:space="preserve">
+    <value>Back to List</value>
+  </data>
+  <data name="NumberOfOrder" xml:space="preserve">
+    <value>Number of order: </value>
+  </data>
+  <data name="ClientTwoPoints" xml:space="preserve">
+    <value>Client: </value>
+  </data>
+  <data name="NameOfProduct" xml:space="preserve">
+    <value>Name of product</value>
+  </data>
+  <data name="Paid" xml:space="preserve">
+    <value>Paid</value>
+  </data>
+  <data name="RetryPayment" xml:space="preserve">
+    <value>Retry payment</value>
+  </data>
 </root>
